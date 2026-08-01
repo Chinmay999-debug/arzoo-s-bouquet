@@ -41,7 +41,7 @@ export function Petals({ count = 18 }: { count?: number }) {
           "var(--rose-soft)",
           "var(--gold)",
           "var(--rose-deep)",
-        ][i % 4],
+        ][i % 4]!,
       })),
     [count],
   );
