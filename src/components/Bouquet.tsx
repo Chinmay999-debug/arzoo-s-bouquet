@@ -89,13 +89,12 @@ function Flower({ bloom, delay }: { bloom: Bloom; delay: number }) {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay, type: "spring", stiffness: 140, damping: 12 }}
-      style={{ originX: `${bloom.x}px`, originY: `${bloom.y}px` }}
-      transform-origin={`${bloom.x} ${bloom.y}`}
+      style={{ transformOrigin: `${bloom.x}px ${bloom.y}px` }}
     >
       <motion.g
         animate={{ rotate: [0, 3, -3, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay }}
-        transform-origin={`${bloom.x} ${bloom.y}`}
+        style={{ transformOrigin: `${bloom.x}px ${bloom.y}px` }}
       >
         {petals.map((i) => (
           <ellipse
@@ -157,7 +156,7 @@ export function Bouquet({ play, message }: { play: boolean; message: string }) {
             initial={{ scale: 0, opacity: 0 }}
             animate={play ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
             transition={{ delay: 1.1 + l.delay, duration: 0.5, ease: "backOut" }}
-            transform-origin="200 400"
+            style={{ transformOrigin: "200px 400px" }}
           />
         ))}
 
@@ -191,14 +190,14 @@ export function Bouquet({ play, message }: { play: boolean; message: string }) {
           initial={{ scale: 0, opacity: 0 }}
           animate={play ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
           transition={{ delay: 3.3, type: "spring", stiffness: 200, damping: 12 }}
-          transform-origin="200 458"
+          style={{ transformOrigin: "200px 458px" }}
         >
           <path
-            d="M200 458 C 178 436, 150 440, 156 458 C 160 472, 186 470, 200 458 Z"
+            d="M200 456 C 176 428, 138 430, 142 452 C 146 474, 180 472, 200 456 Z"
             fill="var(--rose-deep)"
           />
           <path
-            d="M200 458 C 222 436, 250 440, 244 458 C 240 472, 214 470, 200 458 Z"
+            d="M200 456 C 224 428, 262 430, 258 452 C 254 474, 220 472, 200 456 Z"
             fill="var(--rose-deep)"
           />
           <circle cx="200" cy="458" r="7" fill="var(--gold)" />
