@@ -227,7 +227,7 @@ function Index() {
             type="button"
             onClick={() => {
               setYes(true);
-              void notifyResponse({ data: { answer: "yes" } });
+              void notifyResponse({ answer: "yes" });
             }}
             animate={{ scale: 1 + noTries * 0.16 }}
             whileTap={{ scale: 1 + noTries * 0.16 - 0.04 }}
@@ -239,7 +239,7 @@ function Index() {
           <NoButton
             onAttempt={(n) => {
               setNoTries(n);
-              void notifyResponse({ data: { answer: "no", attempt: n } });
+              void notifyResponse({ answer: "no", attempt: n });
             }}
           />
         </div>
