@@ -47,7 +47,7 @@ function Screen({
       whileInView={{ opacity: 1 }}
       viewport={{ amount: 0.4 }}
       transition={{ duration: 1.2, ease: "easeInOut" }}
-      onViewportEnter={onEnter}
+      onViewportEnter={() => onEnter?.()}
     >
       {children}
     </motion.section>
@@ -61,14 +61,14 @@ function Index() {
   const thanks = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (yes) {
-      const t = setTimeout(
-        () => thanks.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
-        400,
-      );
-      return () => clearTimeout(t);
-    }
+    if (!yes) return undefined;
+    const t = setTimeout(
+      () => thanks.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
+      400,
+    );
+    return () => clearTimeout(t);
   }, [yes]);
+
 
   return (
     <main className="relative overflow-x-hidden">
