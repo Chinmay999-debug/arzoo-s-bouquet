@@ -34,8 +34,9 @@ export function NoButton({ onAttempt }: { onAttempt: (n: number) => void }) {
       animate={{
         x: o.x,
         y: o.y,
-        scale: [1, 1, 0.72, 0.5][n],
-        opacity: [1, 1, 0.75, 0.3][n],
+        scale: [1, 1, 0.72, 0.5][n] ?? 1,
+        opacity: [1, 1, 0.75, 0.3][n] ?? 1,
+
       }}
       transition={{ type: "spring", stiffness: 380, damping: 20 }}
       className="rounded-full border border-border bg-card px-8 py-3 text-lg text-muted-foreground shadow-sm"
