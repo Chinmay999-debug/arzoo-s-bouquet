@@ -27,27 +27,22 @@ function Petal({ delay, x, size, duration, tint }: { delay: number; x: number; s
   );
 }
 
-export function Petals({ count = 18 }: { count?: number }) {
+export function Petals({ count = 16 }: { count?: number }) {
   const petals = useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
         id: i,
         x: (i * 37) % 100,
         size: 12 + ((i * 7) % 16),
-        delay: (i * 1.7) % 22,
-        duration: 20 + ((i * 5) % 16),
-        tint: [
-          "var(--rose)",
-          "var(--rose-soft)",
-          "var(--gold)",
-          "var(--rose-deep)",
-        ][i % 4]!,
+        delay: (i * 1.7) % 20,
+        duration: 18 + ((i * 5) % 16),
+        tint: ["var(--rose)", "var(--rose-soft)", "var(--gold)", "var(--sage)"][i % 4]!,
       })),
     [count],
   );
 
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden opacity-70">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-70">
       {petals.map((p) => (
         <Petal key={p.id} {...p} />
       ))}
